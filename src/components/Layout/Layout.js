@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useStaticQuery, graphql, Link, Script } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Logo from "../../static/images/svg/central.svg";
 import Header from "../Header";
 import SectionContainer from '../SectionContainer'

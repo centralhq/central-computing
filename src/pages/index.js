@@ -5,8 +5,8 @@ import SectionContainer from "../components/SectionContainer";
 import OverviewView from "../components/OverviewView";
 import Hero from "../static/images/svg/central-hero.svg";
 import Diagram from "../static/images/svg/central-diagram.svg";
-import DOMPurify from "isomorphic-dompurify";
-import { navigate } from 'gatsby';
+import sanitizeHtml from "sanitize-html";
+import { navigate, Script } from 'gatsby';
 import { marked } from "marked";
 import hljs from "highlight.js";
 import ReactGA from 'react-ga4';
@@ -56,7 +56,7 @@ const IndexPage = () => {
                 </div>
                 <div className="code">
                     <pre>
-                        <code className="language-javascript code" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(marked(javascript))}}/>
+                        <code className="language-javascript code" dangerouslySetInnerHTML={{__html: sanitizeHtml(marked(javascript))}}/>
                     </pre>
                 </div>
             </div>)
@@ -79,7 +79,7 @@ const IndexPage = () => {
                     </div>
                         <div className="code">
                             <pre>
-                                <code className="language-go code" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(marked(golang))}}/>
+                                <code className="language-go code" dangerouslySetInnerHTML={{__html: sanitizeHtml(marked(golang))}}/>
                             </pre>
                         </div>
                     </div>)
@@ -225,9 +225,6 @@ const IndexPage = () => {
 export const Head = () => {
     return(
     <React.Fragment>
- <noscript><iframe title="gtag" src="https://www.googletagmanager.com/ns.html?id=GTM-KPZ4NMB"
-          height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
-        <Script>{(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KPZ4NMB')}</Script>
         <title>Multi-user apps in a day</title>
         <meta name="description" content="Build multiplayer apps in a day. Our modules are built for easy integration and scalable from day one. No need to worry about memory limits or edge cases, we deal with the hard stuff." />
         <meta name="keywords" content="multiplayer, collaboration, share, development, software, network, enterprise" />
