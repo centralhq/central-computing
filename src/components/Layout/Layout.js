@@ -1,13 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql, Link } from "gatsby";
+import { Provider as StyletronProvider } from "styletron-react";
+import { BaseProvider, createDarkTheme } from 'baseui';
 import Logo from "../../static/images/svg/central.svg";
 import Header from "../Header";
 import SectionContainer from '../SectionContainer'
 
 import './_layout.scss';
 
+const primitives = {
+  primaryFontFamily: 'Plus Jakarta Sans',
+};
+
+// ReactGA.initialize("G-QZP8YGTFF5");
+
+
+
 const Layout = ({ children }) => {
-    const [engine, setEngine] = useState(null);
+  const [engine, setEngine] = useState(null);
+
+  const theme = createDarkTheme(primitives);
+
+  useEffect(() => {
+    // Load the `styletron-engine-atomic` package dynamically.
+    // Reason: It requires use of `document`, which is not available
+    // outside the browser, so we need to wait until it successfully loads.
+    // Source: https://www.gatsbyjs.org/docs/debugging-html-builds/
+    import('styletron-engine-atomic').then(styletron => {
+      const clientEngine = new styletron.Client();
+      setEngine(clientEngine);
+    });
+  }, []);
 
     const data = useStaticQuery(
       graphql`
@@ -25,18 +48,13 @@ const Layout = ({ children }) => {
       `
     );
 
-    useEffect(() => {
-      import('styletron-engine-atomic').then(styletron => {
-          const clientEngine = new styletron.Client();
-          setEngine(clientEngine);
-      })
-    }, []);
-
     if (!engine) return null;
     
     const heroLogo = <Logo className="surfboard-logo"/>
     return (
-            <div className="surfboard-body">
+      <StyletronProvider value={engine}>
+      <BaseProvider theme={theme}>
+      <div className="surfboard-body">
               <Header menuLinks={data.site.siteMetadata.menuLinks} siteTitle={heroLogo} />
               {children}
               <div className="footer">
@@ -63,6 +81,8 @@ const Layout = ({ children }) => {
                 </SectionContainer>
               </div>
             </div>
+      </BaseProvider>
+    </StyletronProvider>
     )
 }
 

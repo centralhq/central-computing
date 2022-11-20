@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-mdx", 
+    "gatsby-plugin-offline",
     {
       resolve: 'gatsby-source-filesystem',
       options: {

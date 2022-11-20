@@ -225,7 +225,7 @@ const IndexPage = () => {
 export const Head = () => {
     return(
     <React.Fragment>
-        <title>Multi-user apps in a day</title>
+        <title>Build multi-user apps in a day</title>
         <meta name="description" content="Build multiplayer apps in a day. Our modules are built for easy integration and scalable from day one. No need to worry about memory limits or edge cases, we deal with the hard stuff." />
         <meta name="keywords" content="multiplayer, collaboration, share, development, software, network, enterprise" />
         <Script type="application/ld+json">
