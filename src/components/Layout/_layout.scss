@@ -1,0 +1,105 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Work+Sans:wght@300;400&display=swap');
+
+@import '../Header/_header.scss';
+
+div.footer {
+    width: 100%;
+    background-color: #1a1a1a;
+}
+
+div.surfboard-body {
+  overflow-x: hidden;
+}
+
+div.footer-how {
+  padding-top: 72px;
+  background-color: inherit;
+}
+
+a.footer--surf-title-link {
+  svg.surfboard-logo {
+    path {
+      fill: #FFFFFF;
+    }
+    
+  }
+}
+
+
+  div.section-how-action {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
+
+    div.footer-links {
+        grid-column-start: 3;
+        grid-column-end: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+        a.link-1,
+        a.link-2 {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding-top: 24px;
+        }    
+    }
+
+    div.social-media {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        grid-column: 4;
+
+        a.icon-discord {
+          color: #FFFFFF;
+      }
+    }
+}
+
+a.privacy-link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (min-width: 375px) {
+  div.section-how-action {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+}
+
+@media (min-width: 744px) {
+  div.section-how-action {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+}
+
+@media (min-width: 950px) {
+  div.section-how-action {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+}
+
+@media (min-width: 1128px) {
+  div.section-how-action {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+}
+}
+
+@media (min-width: 1440px) {
+  div.section-how-action {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+}
+}
