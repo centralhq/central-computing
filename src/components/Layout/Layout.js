@@ -17,6 +17,7 @@ const primitives = {
 
 
 const Layout = ({ children }) => {
+  const [hasMounted, setHasMounted] = useState(false);
   const [engine, setEngine] = useState(null);
 
   const theme = createDarkTheme(primitives);
@@ -30,7 +31,11 @@ const Layout = ({ children }) => {
       const clientEngine = new styletron.Client();
       setEngine(clientEngine);
     });
+
+    setHasMounted(true);
   }, []);
+
+
 
     const data = useStaticQuery(
       graphql`
@@ -48,7 +53,7 @@ const Layout = ({ children }) => {
       `
     );
 
-    if (!engine) return null;
+    if (!engine || !hasMounted) return null;
     
     const heroLogo = <Logo className="surfboard-logo"/>
     return (
