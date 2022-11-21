@@ -15,12 +15,14 @@ const Header = ({ siteTitle, menuLinks }) => {
   >
     <div className="header--base">
       <div className="header--title">
+        <div className="header-logo">
           <Link
             className="header--surf-title-link"
             to="/"
           >
             {siteTitle}
           </Link>
+        </div>
       </div>
       <div className="header-nav">
         <nav className="header-nav--content">

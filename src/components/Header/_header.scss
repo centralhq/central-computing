@@ -23,6 +23,12 @@ header.header {
             vertical-align: middle;
             align-items: center;
 
+            div.header-logo {
+                display: flex;
+                justify-content: flex-start;
+                height: 35px;
+            }
+
             a.header--surf-title-link {
                 display: flex;
                 vertical-align: middle;
