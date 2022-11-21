@@ -46,16 +46,20 @@ const NavDrawer = props => {
                                 overrides: {
                                     ListItem: {
                                         component: forwardRef((props, ref) => (
+                                            <a href={props.item.href} className="drawer-link">
                                             <MenuAdapter
                                                 {...props}
                                                 ref={ref}
                                             >  
+                                           
                                                 <ListItemLabel>
-                                                    <a href={props.item.href} className="drawer-link">
+                                                    
                                                         {props.item.label}
-                                                    </a>
+                                                   
                                                 </ListItemLabel>
+                                            
                                             </MenuAdapter>
+                                            </a>
                                         ))
                                     }
                                 }
