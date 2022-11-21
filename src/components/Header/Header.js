@@ -32,7 +32,7 @@ const Header = ({ siteTitle, menuLinks }) => {
                 key={link.name}
                 className="header-nav--list-link"
               >
-                <a className="header-nav--link" href={link.link}>
+                <Link className="header-nav--link" to={link.link}>
                   <Button
                     shape={SHAPE.pill}
                     kind={KIND.tertiary}
@@ -40,7 +40,7 @@ const Header = ({ siteTitle, menuLinks }) => {
                   >
                     {link.name}
                   </Button>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
