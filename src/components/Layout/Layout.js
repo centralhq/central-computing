@@ -4,6 +4,7 @@ import { Provider as StyletronProvider } from "styletron-react";
 import { BaseProvider, createDarkTheme } from 'baseui';
 import Logo from "../../static/images/svg/central.svg";
 import Header from "../Header";
+import ReactGA from 'react-ga4';
 import SectionContainer from '../SectionContainer'
 
 import './_layout.scss';
@@ -12,7 +13,7 @@ const primitives = {
   primaryFontFamily: 'Plus Jakarta Sans',
 };
 
-// ReactGA.initialize("G-QZP8YGTFF5");
+ReactGA.initialize("G-QZP8YGTFF5");
 
 
 
